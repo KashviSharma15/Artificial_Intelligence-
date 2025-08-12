@@ -167,6 +167,52 @@ To solve the 8 Puzzle Problem using a **heuristic search** approach based on the
 
 ---
 ## <u>AIM</u>  
+To solve the 8-puzzle problem using the **Hill Climbing** heuristic search algorithm with Manhattan distance.
+
+---
+
+## Algorithm
+
+1. **State Representation**  
+   - Represent the puzzle board as a 3×3 matrix.  
+   - Track the position of the empty tile (0) as `(zero_row, zero_col)`.  
+   - Maintain a heuristic value indicating estimated distance to goal.
+
+2. **Heuristic Calculation**  
+   - Use the **Manhattan distance** heuristic: sum of distances of each tile from its goal position.
+
+3. **Neighbor Generation**  
+   - Generate all possible next states by sliding a tile adjacent to the empty space into the empty space.  
+   - Valid moves: up, down, left, right (if within bounds).
+
+4. **Hill Climbing Search**  
+   - Start from the initial puzzle state.  
+   - At each step, compute neighbors and their heuristic values.  
+   - Move to the neighbor with the lowest heuristic if it improves over the current state.  
+   - Stop if no neighbor has better heuristic (local maximum) or goal is reached.
+
+5. **Goal Test**  
+   - Check if current board configuration matches the goal board.
+
+---
+
+## Time Complexity  
+- Depends on the number of states explored before getting stuck in a local maximum or reaching goal.  
+- Typically faster than exhaustive search but can get stuck prematurely.
+
+---
+
+## Space Complexity  
+- Stores current state and neighbors, so \(O(b)\) where \(b\) is branching factor (up to 4 moves).
+
+---
+
+## Use Cases  
+- Illustrates heuristic-based local search algorithms.  
+- Useful for solving small puzzles with admissible heuristics.
+  
+---
+## <u>AIM</u>  
 To implement a Tic-Tac-Toe game using modified 2nd approach.
 
 ---
