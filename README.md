@@ -346,7 +346,7 @@ To solve the classic Water Jug problem using a simulation approach that performs
 ---
 
 ## <u>AIM</u>
-**A* Search Algorithm** .
+** A* Search Algorithm ** .
 
 ---
 ## Algorithm
