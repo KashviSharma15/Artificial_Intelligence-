@@ -402,7 +402,7 @@ O(maximum branching factor ^ depth of solution)
 
 ---
 
-## Space Complexity**
+## Space Complexity
 O(maximum branching factor ^ depth of solution)  
 
 ---
