@@ -1,17 +1,6 @@
-# Artificial Intelligence – 8 Puzzle Solver
+# Artificial Intelligence 
 
 ---
-
-## Table of Contents
-- [Introduction](#introduction)
-- [Algorithms](#algorithms)
-  - [Depth First Search (DFS)](#depth-first-search-dfs)
-  - [Breadth First Search (BFS)](#breadth-first-search-bfs)
-  - [Heuristic Search (Misplaced Tiles)](#heuristic-search-misplaced-tiles)
-  - [Hill Climbing (Manhattan Distance)](#hill-climbing-manhattan-distance)
-- [Time & Space Complexity](#time--space-complexity)
-- [Use Cases](#use-cases)
-
 
 ## <u>AIM</u>
 To solve the 8 Puzzle Problem using **Depth First Search (DFS)** 
