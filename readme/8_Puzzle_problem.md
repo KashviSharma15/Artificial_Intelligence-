@@ -1,6 +1,3 @@
-# Artificial Intelligence 
-
----
 
 ## <u>AIM</u>
 To solve the 8 Puzzle Problem using **Depth First Search (DFS)** 
@@ -62,156 +59,162 @@ To solve the 8 Puzzle Problem using **Depth First Search (DFS)**
 - Understanding DFS traversal in a finite state problem.
 - State representation and path reconstruction.
 
-## <u>AIM</u>
-To solve the 8 Puzzle Problem using **Breadth First Search (BFS)**
+## Code 
 
----
+#include <iostream>
+#include <vector>
+#include <stack>
+using namespace std;
 
-## Algorithm
+struct state {
+    int id;
+    int parent_id;
+    int s[3][3];
+};
 
-1. **State Structure**
-   - Maintain a `state` structure with:
-     - `id` → unique identifier of the state
-     - `parent_id` → id of the state from which this was generated
-     - `s[3][3]` → 3×3 integer array for puzzle configuration
+bool goal_test(state current, state goal) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (current.s[i][j] != goal.s[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
 
-2. **Goal Test**
-   - Function `goal_test()` checks if the current state matches the goal state.
+bool visited(vector<state> closed, state cur) {
+    for (int idx = 0; idx < (int)closed.size(); idx++) {
+        if (goal_test(closed[idx], cur)) {
+            return true;
+        }
+    }
+    return false;
+}
 
-3. **Move Generation**
-   - Function `generate_moves()` finds the position of the blank (0) tile.
-   - Based on the blank tile’s position, generate all possible valid moves:
-     - Move **Up**
-     - Move **Down**
-     - Move **Left**
-     - Move **Right**
-   - For example:
-     - If blank is at `(0,0)`, moves: Right, Down
-     - If blank is at `(1,1)`, moves: Up, Down, Left, Right
+vector<state> generate_moves(state current, int &id_counter) {
+    vector<state> moves;
+    int blank_i = -1;
+    int blank_j = -1;
 
-4. **BFS Search**
-   - Use a **queue** to store states to explore.
-   - Enqueue the initial state and mark it visited.
-   - Maintain a **closed list** to store visited states.
-   - While the queue is not empty:
-     1. Dequeue the front state.
-     2. If it is the goal state → reconstruct and print the path using `parent_id`.
-     3. Otherwise:
-        - Generate possible moves from this state.
-        - For each new state:
-          - If it is **not in closed list**, assign a new `id` and set its `parent_id` to the current state’s `id`, then enqueue it.
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (current.s[i][j] == 0) {
+                blank_i = i;
+                blank_j = j;
+            }
+        }
+    }
 
-5. **Path Reconstruction**
-   - Once the goal state is found, use `parent_id` links to trace back to the initial state.
-   - Print the sequence of states.
+    int dir_i[4] = {-1, 1, 0, 0};
+    int dir_j[4] = {0, 0, -1, 1};
 
----
+    for (int k = 0; k < 4; k++) {
+        int new_i = blank_i + dir_i[k];
+        int new_j = blank_j + dir_j[k];
 
-## Time Complexity
-- **Worst-case time complexity**:  
-  \[
-  O(branching factor^depth of the shallowest goal node.)
-  \]  
-- **Space complexity**:  
-  BFS uses \(O(b^d)\) due to storing all generated nodes in the queue and closed list.
+        if (new_i >= 0 && new_i < 3 && new_j >= 0 && new_j < 3) {
+            state next;
+            for (int x = 0; x < 3; x++) {
+                for (int y = 0; y < 3; y++) {
+                    next.s[x][y] = current.s[x][y];
+                }
+            }
+            next.id = id_counter++;
+            next.parent_id = current.id;
+            int temp = next.s[blank_i][blank_j];
+            next.s[blank_i][blank_j] = next.s[new_i][new_j];
+            next.s[new_i][new_j] = temp;
+            moves.push_back(next);
+        }
+    }
 
----
+    return moves;
+}
 
-## Use Cases
-- Finding the shortest path in terms of number of moves.
-- Demonstrating level-order traversal in a finite state problem.
+int main() {
+    state initial;
+    state goal;
+    int id_counter = 1;
 
----
+    cout << "Please enter the initial state (use 0 for blank):\n";
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cin >> initial.s[i][j];
+        }
+    }
+    initial.id = id_counter++;
+    initial.parent_id = -1;
 
-## <u>AIM</u>  
-To solve the 8 Puzzle Problem using a **heuristic search** approach based on the number of misplaced tiles.
+    cout << "Please enter the goal state (use 0 for blank):\n";
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            cin >> goal.s[i][j];
+        }
+    }
 
----
+    if (goal_test(initial, goal)) {
+        cout << "Puzzle already solved.\n";
+        return 0;
+    }
 
-## Algorithm
+    stack<state> st;
+    vector<state> closed;
 
-1. **State Structure**  
-   - Maintain a `state` structure with:  
-     - `id` → unique identifier of the state  
-     - `parent_id` → id of the state from which this was generated  
-     - `s[3][3]` → 3×3 integer array representing the puzzle configuration  
+    st.push(initial);
+    closed.push_back(initial);
 
-2. **Goal Test**  
-   - Function `goal_test()` checks if the current state matches the goal state.
+    bool found = false;
+    state found_goal;
 
-3. **Heuristic Function**  
-   - Function `heuristic_value()` calculates the number of misplaced tiles compared to the goal configuration (excluding the blank tile).  
-   - This heuristic guides the search towards states that are closer to the goal.
+    while (!st.empty()) {
+        state current = st.top();
+        st.pop();
 
-4. **Move Generation**  
-   - Function `generate_moves()` identifies the position of the blank tile (0).  
-   - Generates all possible valid moves by sliding tiles **Up**, **Down**, **Left**, or **Right** into the blank space, depending on the blank tile’s position.
+        if (goal_test(current, goal)) {
+            found = true;
+            found_goal = current;
+            break;
+        }
 
-5. **Heuristic Search (Best-First Search)**  
-   - Maintain a **priority queue (min-heap)** that stores states keyed by their heuristic value.  
-   - Initialize the heap with the initial state and an empty closed list for visited states.  
-   - While the heap is not empty:  
-     1. Extract the state with the minimum heuristic value.  
-     2. If this state matches the goal → stop and reconstruct the path.  
-     3. Otherwise, generate successor states.  
-     4. For each successor state not already visited:  
-        - Assign a new `id` and set its `parent_id` to the current state’s `id`.  
-        - Push it into the heap and add to the closed list.
+        vector<state> children = generate_moves(current, id_counter);
 
-6. **Path Reconstruction**  
-   - Once the goal state is found, use `parent_id` links to backtrack from the goal state to the initial state.  
-   - Print the sequence of states showing the steps to solve the puzzle.
+        for (int i = 0; i < (int)children.size(); i++) {
+            if (!visited(closed, children[i])) {
+                st.push(children[i]);
+                closed.push_back(children[i]);
+            }
+        }
+    }
 
----
+    if (found) {
+    vector<state> path;
+    state cur = found_goal;
+    while (true) {
+        path.push_back(cur);
+        if (cur.parent_id == -1) break;
+        for (int i = 0; i < (int)closed.size(); i++) {
+            if (closed[i].id == cur.parent_id) {
+                cur = closed[i];
+                break;
+            }
+        }
+    }
 
-## Time Complexity  
-- The worst-case complexity depends on the branching factor and maximum search depth.  
-- Heuristic search prunes the search space, generally performing better than uninformed search.
+    cout << "Puzzle Solved.\n";
+    cout << "Path is :\n";
+    for (int p = (int)path.size() - 1; p >= 0; p--) {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                cout << path[p].s[i][j] << ' ';
+            }
+            cout << '\n';
+        }
+        cout << "->\n";
+    }
+} else {
+    cout << "No solution found.\n";
+}
+}
 
----
-## <u>AIM</u>  
-To solve the 8-puzzle problem using the **Hill Climbing** heuristic search algorithm with Manhattan distance.
 
----
-
-## Algorithm
-
-1. **State Representation**  
-   - Represent the puzzle board as a 3×3 matrix.  
-   - Track the position of the empty tile (0) as `(zero_row, zero_col)`.  
-   - Maintain a heuristic value indicating estimated distance to goal.
-
-2. **Heuristic Calculation**  
-   - Use the **Manhattan distance** heuristic: sum of distances of each tile from its goal position.
-
-3. **Neighbor Generation**  
-   - Generate all possible next states by sliding a tile adjacent to the empty space into the empty space.  
-   - Valid moves: up, down, left, right (if within bounds).
-
-4. **Hill Climbing Search**  
-   - Start from the initial puzzle state.  
-   - At each step, compute neighbors and their heuristic values.  
-   - Move to the neighbor with the lowest heuristic if it improves over the current state.  
-   - Stop if no neighbor has better heuristic (local maximum) or goal is reached.
-
-5. **Goal Test**  
-   - Check if current board configuration matches the goal board.
-
----
-
-## Time Complexity  
-- Depends on the number of states explored before getting stuck in a local maximum or reaching goal.  
-- Typically faster than exhaustive search but can get stuck prematurely.
-
----
-
-## Space Complexity  
-- Stores current state and neighbors, so \(O(b)\) where \(b\) is branching factor (up to 4 moves).
-
----
-
-## Use Cases  
-- Illustrates heuristic-based local search algorithms.  
-- Useful for solving small puzzles with admissible heuristics.
-  
----
