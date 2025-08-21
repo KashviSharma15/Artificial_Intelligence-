@@ -131,7 +131,6 @@ vector<state> generate_moves(state current, int &id_counter) {
 
     return moves;
 }
-
 int main() {
     state initial;
     state goal;
@@ -211,8 +210,7 @@ int main() {
             cout << '\n';
         }
         cout << "->\n";
-    }
-} else {
+    } } else {
     cout << "No solution found.\n";
 }
 }
