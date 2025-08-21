@@ -61,6 +61,7 @@ To solve the 8 Puzzle Problem using **Depth First Search (DFS)**
 
 ## Code 
 
+```cpp
 #include <iostream>
 #include <vector>
 #include <stack>
