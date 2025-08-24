@@ -214,5 +214,11 @@ int main() {
     } } else {
     cout << "No solution found.\n";
 }}
+```
+---
+
+## Output
+
+<img width="363" height="241" alt="Screenshot 2025-08-24 at 9 15 53 PM" src="https://github.com/user-attachments/assets/0f8b22de-f037-46d9-b0af-cef962def230" />
 
 
