@@ -216,3 +216,8 @@ int main() {
     cout << "No solution found.\n";
 }
 }
+```
+---
+
+## Output
+
