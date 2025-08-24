@@ -216,9 +216,13 @@ int main() {
     cout << "No solution found.\n";
 }
 }
+
 ```
 ---
-## Output   
+
+## Output
+
+
 
 Please enter the initial state (use 0 for blank):
 1 2 3
