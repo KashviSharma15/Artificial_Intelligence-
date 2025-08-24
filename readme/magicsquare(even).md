@@ -119,5 +119,13 @@ int main() {
     return 0;
 }
 
+```
+
+---
+
+## Output
+
+<img width="384" height="116" alt="Screenshot 2025-08-24 at 9 52 40 PM" src="https://github.com/user-attachments/assets/4b9d6d28-ebb5-49e5-b54b-8a6b5741afe7" />
+
 
 
