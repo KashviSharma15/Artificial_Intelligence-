@@ -239,3 +239,11 @@ int main() {
         cout << "No solution found.\n";
     }
 }
+```
+---
+
+## Output
+<img width="261" height="74" alt="Screenshot 2025-08-24 at 9 26 09 PM" src="https://github.com/user-attachments/assets/4f962b74-719b-4538-a015-1d19d50f2068" />
+
+
+
