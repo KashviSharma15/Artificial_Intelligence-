@@ -16,7 +16,7 @@ To implement a Tic-Tac-Toe game using Approach 2.
    - Example: '_' for empty, 'X' for computer, 'O' for human
 
 3. **Winning Move Check (POSSWIN)**  
-   - Describe the logic for checking possible winning moves  
+   - Describe the logic for checking possible winning moves 
    - You can use math notation like:  
      - If product = 18 → computer wins next  
      - If sum = $15$ → player wins
@@ -187,3 +187,9 @@ int main() {
     cout << "Game Over!" << endl;
     return 0;
 }
+
+```
+---
+
+## Output
+ <img width="447" height="727" alt="Screenshot 2025-08-24 at 9 40 03 PM" src="https://github.com/user-attachments/assets/990a8591-3df9-4156-b3ab-b7f06947804c" />
