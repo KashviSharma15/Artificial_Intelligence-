@@ -140,4 +140,10 @@ int main() {
     return 0;
 }
 
+```
+---
+
+## Output 
+
+<img width="269" height="184" alt="Screenshot 2025-08-24 at 9 49 45 PM" src="https://github.com/user-attachments/assets/267e58fd-0009-42bc-81ee-3a8475af4bfa" />
 
