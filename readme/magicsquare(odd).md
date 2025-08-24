@@ -95,3 +95,9 @@ int main(){
 
     return 0;
 }
+```
+---
+
+## Output 
+<img width="332" height="75" alt="Screenshot 2025-08-24 at 9 53 47 PM" src="https://github.com/user-attachments/assets/c8f62cca-c025-4a25-837d-b179ce079be4" />
+
