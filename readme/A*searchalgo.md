@@ -221,3 +221,10 @@ int main() {
 
     return 0;
 }
+```
+
+---
+## Output
+<img width="312" height="186" alt="Screenshot 2025-08-24 at 9 36 33 PM" src="https://github.com/user-attachments/assets/ce1bb4df-c278-41bd-a4b5-0bd30d06dcbb" />
+
+
