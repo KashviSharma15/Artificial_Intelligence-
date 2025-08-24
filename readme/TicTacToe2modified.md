@@ -218,3 +218,10 @@ int main() {
     cout << "Game Over!" << endl;
     return 0;
 }
+
+```
+---
+
+## Output
+
+<img width="412" height="731" alt="Screenshot 2025-08-24 at 9 42 42 PM" src="https://github.com/user-attachments/assets/6c8e60ce-4e24-45dc-9f03-bdaac94a74bc" />
