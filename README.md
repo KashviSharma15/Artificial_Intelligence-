@@ -412,3 +412,9 @@ O(maximum branching factor ^ depth of solution)
 - Understanding **A* search with Manhattan heuristic**.  
 - Visualizing 8-directional movement cost calculation and path reconstruction.
 
+- Each state generates **3 possible moves**.
+- Depth of recursion depends on distance from the goal (value 6).  
+\[
+O(3^d) \quad \text{where } d = |n - 6|
+\]
+
