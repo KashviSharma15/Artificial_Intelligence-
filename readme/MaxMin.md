@@ -1,5 +1,5 @@
 ## <u>AIM</u>
-To implement a **Tic-Tac-Toe** game with an **unbeatable AI** using the `Minimax` algorithm.
+To implement a **Tic-Tac-Toe** game using the `Minimax` algorithm.
 
 ---
 
