@@ -224,3 +224,5 @@ int main() {
 
   ```
   ## <u>Output</u>
+
+  <img width="714" height="758" alt="Screenshot 2025-08-31 at 10 12 36 PM" src="https://github.com/user-attachments/assets/5a1cba9e-79a3-4dfa-991f-36c64b01bd67" />
