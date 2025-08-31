@@ -50,8 +50,11 @@ To implement a **Tic-Tac-Toe** game with an **unbeatable AI** using the `Minimax
 - Ensures **unbeatable computer strategy** for small games like `Tic-Tac-Toe`.
 - Can be extended to other **games** like chess.
 
-  ## <u>Code</u>
-  ```cpp
+---
+
+## Code 
+
+```cpp
 #include <iostream>
 #include <vector>
 #include <limits>
