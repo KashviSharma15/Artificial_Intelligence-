@@ -532,8 +532,6 @@ O(bd)
 ## <u>AIM</u>
 To solve a grid-based search problem using the **Alpha-Beta Pruning** algorithm.  
 
----
-
 ## Algorithm
 
 1. **State Structure**
@@ -571,8 +569,6 @@ To solve a grid-based search problem using the **Alpha-Beta Pruning** algorithm.
 5. **Path Reconstruction**
    ~After the search, follow the best child from the start node to reconstruct the path leading to the goal.~  
 
----
-
 ## Time Complexity
 - **Worst-case time complexity (without pruning):**  
   \[
@@ -585,15 +581,11 @@ To solve a grid-based search problem using the **Alpha-Beta Pruning** algorithm.
   O(b^{d/2})
   \]  
 
----
-
 ## Space Complexity
 ~The space complexity is determined by the maximum depth of the recursion stack:~  
 \[
 O(d)
 \]  
-
----
 
 ## Use Cases
 - Efficient decision-making in **two-player games** like Chess, Tic-Tac-Toe, and Checkers.  
