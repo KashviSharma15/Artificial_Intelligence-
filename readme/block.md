@@ -1,9 +1,9 @@
-# AIM
+## AIM
 To solve the **Blocks World problem** using a **depth-limited DFS** 
 
 ---
 
-# Algorithm
+## Algorithm
 
 1. **State Representation**  
    - Each state is represented as a `struct State`:
@@ -28,14 +28,14 @@ To solve the **Blocks World problem** using a **depth-limited DFS**
 
 ---
 
-# Time Complexity
+## Time Complexity
 - Worst-case complexity is **O(b^d)**, where `b` is the branching factor (number of possible moves) and `d` is the depth limit.  
 - DFS may not find a solution if the depth limit is too small.  
 - This is an uninformed search (no heuristic).
 
 ---
 
-# Code
+## Code
 
 ```cpp
 #include <iostream>
