@@ -1,9 +1,9 @@
-# AIM
+## AIM
 To implement **Alpha-Beta Pruning** for a two-player game scenario
 
 ---
 
-# Algorithm
+## Algorithm
 
 1. **State Structure**  
    Each state is represented as a `struct State`:
@@ -41,13 +41,13 @@ To implement **Alpha-Beta Pruning** for a two-player game scenario
 
 ---
 
-# Time Complexity
+## Time Complexity
 - Worst-case complexity is **O(b^d)** where `b` is branching factor (up to 4) and `d` is the maximum search depth.  
 - Alpha-Beta pruning reduces unnecessary evaluations compared to naive Minimax.
 
 ---
 
-# Code
+## Code
 
 ```cpp
 #include <iostream>
@@ -201,5 +201,5 @@ int main() {
     return 0;
 }
 ```
-# Output 
+## Output 
 <img width="476" height="257" alt="Screenshot 2025-09-20 at 10 49 28 AM" src="https://github.com/user-attachments/assets/8a69ba1f-8710-4b28-978d-85be0e0fdd12" />
