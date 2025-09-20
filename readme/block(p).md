@@ -1,5 +1,5 @@
 # AIM
-To solve the **Blocks World problem** using a **depth-limited DFS** approach, finding a sequence of moves to reach the goal configuration from the initial configuration.
+To solve the **Blocks World problem** 
 
 ---
 
