@@ -1,4 +1,4 @@
-# AIM
+## AIM
 To solve the **Blocks World problem** using a **depth-limited DFS** 
 ---
 
