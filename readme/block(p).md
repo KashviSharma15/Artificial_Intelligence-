@@ -1,9 +1,9 @@
-# AIM
+## AIM
 To solve the **Blocks World problem** 
 
 ---
 
-# Algorithm
+## Algorithm
 
 1. **State Representation**  
    - Each state is a **list of `on(Block, Support)` terms**, e.g., `[on(a, table), on(b, a)]`.  
@@ -32,14 +32,14 @@ To solve the **Blocks World problem**
 
 ---
 
-# Time Complexity
+## Time Complexity
 - Worst-case complexity is **O(b^d)**, where `b` is the branching factor (number of possible moves) and `d` is the maximum depth limit.  
 - DFS may not always find a solution if the depth limit is too small.  
 - Heuristic search is not used here; this is uninformed DFS.
 
 ---
 
-# Code
+## Code
 
 ```prolog
 solve_blocks(Start, Goal, Solution) :-
