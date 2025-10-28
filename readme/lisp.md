@@ -5,34 +5,76 @@ To implement a Tic-Tac-Toe game using Approach 2.
 
 ## Algorithm
 
-1. *Board Representation*  
-   - Explain how the board is stored  
-   - Example: 2 → empty, 3 → X, 5 → O
+1. * Board Representation *
+- Board stored as a 1D array of size `9`  
+- `nil` → empty  
+- `'X` → human  
+- `'O` → computer  
 
-2. *Display Board*  
-   - Mention how the board is displayed  
-   - Example: '_' for empty, 'X' for computer, 'O' for human
+---
 
-3. **Winning Move Check (POSSWIN)**  
-   - Describe the logic for checking possible winning moves 
-   - You can use math notation like:  
-     - If product = 18 → computer wins next  
-     - If sum = $15$ → player wins
+### 2. Display Board
+- Function `print-board` prints each cell  
+- Uses `-` for empty cells  
+- Prints newline after every 3 cells  
 
-4. **Make a Move (GO)**  
-   - Explain move placement logic  
+---
 
-5. *Check Win Condition*  
-   - Add conditions in bullet or math form
+### 3. Winning Move Check (`POSSWIN`)
+- Function `winner` checks all 8 possible winning lines  
+- Condition:  
+  ```lisp
+  if (a = b = c ≠ nil)
+      winner = a
+  ```
 
-6. *Check Draw*  
-   - Add logic here
+---
 
-7. **Helper Function (e.g., MAKE2)**  
-   - Describe center/sides logic
+### 4. Make a Move (`GO`)
+- Function `best-move` tries each empty cell  
+- Temporarily places `'O`  
+- Calls `minimax` to evaluate score  
+- Chooses move with maximum score  
 
-8. *Game Loop*  
-   - Describe turn-by-turn logic (computer vs human)
+---
+
+### 5. Check Win Condition
+- If `winner(board)` = `'X` → player wins  
+- If `winner(board)` = `'O` → computer wins  
+
+---
+
+### 6. Check Draw
+- Function `full-board-p(board)`  
+  ```lisp
+  (notany #'null board)
+  ```
+- If true and no winner → draw  
+
+---
+
+### 7. Helper Function (`MAKE2` / `minimax`)
+- Recursive evaluation of moves  
+- `'O` (maximizing) → choose max score  
+- `'X` (minimizing) → choose min score  
+- Scoring logic:  
+  ```text
+  X wins → -10 + depth
+  O wins → +10 - depth
+  Draw   → 0
+  ```
+
+---
+
+### 8. Game Loop
+1. Display board  
+2. Human plays `'X`  
+3. Check win/draw  
+4. Computer plays `'O` using `best-move`  
+5. Check win/draw  
+6. Repeat until game ends  
+
+---
 
 ---
 
@@ -139,3 +181,8 @@ To implement a Tic-Tac-Toe game using Approach 2.
 
 (play)
 ```
+---
+
+## Output
+
+<img width="412" height="731" alt="Screenshot 2025-08-24 at 9 42 42 PM" src="https://github.com/user-attachments/assets/6c8e60ce-4e24-45dc-9f03-bdaac94a74bc" />
